@@ -8,17 +8,19 @@ function swapValue(list,index_1,index_2){
 
 function bubbleSort(list){
     let i,j;
-    for( i = 0 ; i<list.length ; i++ ) {
-        for ( j = list.length ; j>i+1 ; j-- ){
-            if(list[j] < list [j-1])
-                swapValue(list,j,j-1)
+    let sorted = list.slice();
+    for( i = 0 ; i<sorted.length ; i++ ) {
+        for ( j = sorted.length ; j>i+1 ; j-- ){
+            if(sorted[j] < sorted [j-1])
+                swapValue(sorted,j,j-1)
         }
-        console.log('steps >>',list)
     }
+    return sorted;
 }
 
 let unsorted = [1,4,5,2,8,9,12,3];
 
-bubbleSort(unsorted)
+let sorted = bubbleSort(unsorted)
 
-// console.log('sorted list ==>',unsorted)
+console.log('unsorted list ==>',unsorted)
+console.log('sorted list   ==>',sorted)
